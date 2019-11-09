@@ -4,6 +4,9 @@
 
 ### Note
        Make sure to have opencv installed before using this package.
+### Install
+    pip install imagethief
+
 ### Dependencies used 
 - [Flask](https://github.com/pallets/flask)
 - [Requests](https://github.com/psf/requests)
