@@ -2,6 +2,12 @@
 
 ### Supports python 3.7+
 
+### Note
+       Make sure to have opencv installed before using this package.
+### Dependencies used 
+- [Flask](https://github.com/pallets/flask)
+- [Requests](https://github.com/psf/requests)
+- [OpenCv](https://pypi.org/project/opencv-python/)
 ## What it's for ?
 - Capture image from sever running on default route and get that image over http.
 - For example 
