@@ -44,7 +44,7 @@ if __name__ == '__main__':
         your_ip = '<your server ip>'
         port = 5000 #default
         url = 'http://'+your_ip+':'+str(port)+'/plan_name'
-        # For above Demo code it is
+        # For above Demo code (Server Demo)  it is
         # url = 'http://'+your_ip+':'+str(port)+'/image'
         r = req.get(url)
         decoder = StolenImageDecoder('<ImageName>')
