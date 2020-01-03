@@ -1,16 +1,26 @@
+from pickle import dumps as pickleDump
+from json import dumps
 from flask import Response
-from ._imageEncoder import VideoCamera
-from base64 import b64encode
+from ._globalDict import Data
 
 
-class EndpointProcessor(object):
-
-    def __init__(self, action, cameraPort):
-        self.action = action
+class EndpointProcessor:
+    def __init__(self, handler, cameraPort, header=None):
+        self.handler = handler
         self.cameraPort = cameraPort
+        self.header = header
 
-    def __call__(self, *args):
-        frame = VideoCamera(self.cameraPort).get_frame()
-        self.response = Response(b64encode(frame), status=200)
-        self.action()
-        return self.response
+    def __call__(self, *args, **kwargs):
+        self.handler()
+        ext = Data.get('Ext', None)
+        if ext == None:
+            return Response(dumps({'message': 'Not Found extension'}), status=404)
+        else:
+            txtFile = Data.get('filename', None)
+            if txtFile == None:
+                return Response(dumps({'message': 'Not Found text file'}), status=404)
+            else:
+                f = open(txtFile, 'rb')
+                fl = pickleDump(f.readlines())
+                f.close()
+                return Response(dumps({'data': fl, 'message': 'OK'}), status=200)

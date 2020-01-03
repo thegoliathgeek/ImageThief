@@ -1,8 +1,5 @@
 from setuptools import setup
-import sys
 
-if sys.version_info < (3, 7):
-    sys.exit('Sorry, Python < 3.7 is not supported')
 
 VERSION = "1.1.0"
 
