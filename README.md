@@ -1,7 +1,4 @@
 # Image Thief 
-
-### Supports python 3.7+
-
 ### Note
        Make sure to have opencv installed before using this package.
 ### Install
@@ -14,7 +11,7 @@
 ## What it's for ?
 - Capture image from sever running on default route and get that image over http.
 - For example 
-    - raspberrypi-1 running server on *http://192.168.0.2:5000*
+    - Assume raspberrypi-1 is running server on *http://192.168.0.2:5000*
     - You wanna get image for raspberry-2 from raspberrypi-1's camera
     - Just use [ImageThief](https://pypi.org/project/ImageThief/) to make things simple.
     
@@ -35,7 +32,7 @@ thief.steal(port=3000, debug=True)
 
 ```
 
-Client Demo
+### Client Demo
 ```python
 import requests as req
 from ImageThief import StolenImageDecoder
