@@ -1,6 +1,7 @@
-from pickle import loads as pickleLoad
 from pickle import dumps as pickleDump
+from json import dumps
 from flask import Response
+from ._globalDict import Data
 
 
 class EndpointProcessor:
@@ -11,5 +12,16 @@ class EndpointProcessor:
 
     def __call__(self, *args, **kwargs):
         self.handler()
-        # self.handler(extenstion=self.header.get('ext', ''))
-        return Response("OK", status=200)
+        ext = Data.get('Ext', None)
+        if ext == None:
+            return Response(dumps({'messge': 'Not Found extension'}), status=404)
+        else:
+            txtFile = Data.get('filename', None)
+            if txtFile == None:
+                return Response(dumps({'messge': 'Not Found text file'}), status=404)
+            else:
+                print('Its Here')
+                f = open(txtFile, 'rb')
+                fl = pickleDump(f.readlines())
+                f.close()
+                return Response(dumps({'data': fl, 'message': 'OK'}), status=200)

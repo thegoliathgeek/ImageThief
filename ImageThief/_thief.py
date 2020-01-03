@@ -1,4 +1,5 @@
-from flask import Flask, request
+from flask import Flask, request, Response
+from json import  dumps
 from ._endpointProcessor import EndpointProcessor
 from ._globalDict import Data
 
@@ -23,4 +24,3 @@ class Thief(Flask):
             Data.update({'Ext': Ext})
         if type(Filename) is unicode:
             Data.update({'filename': Filename})
-        print('Data', Data)
