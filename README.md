@@ -1,6 +1,5 @@
 # Image Thief 
-### Note
-       Make sure to have opencv installed before using this package.
+
 ### Install
     pip install imagethief
 

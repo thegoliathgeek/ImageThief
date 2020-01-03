@@ -3,11 +3,6 @@ IMAGE THIEF
 
 This is a python library for capturing images over default route (http://0.0.0.0)
 
-
-Python-2.7 Not Supported
-========================
-
-
 Functions:
 ----------
 * Capture images from raspberryPi and access on your system.
