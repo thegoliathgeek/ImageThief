@@ -7,14 +7,7 @@
 ### Dependencies used 
 - [Flask](https://github.com/pallets/flask)
 - [Requests](https://github.com/psf/requests)
-- [OpenCv](https://pypi.org/project/opencv-python/)
-## What it's for ?
-- Capture image from sever running on default route and get that image over http.
-- For example 
-    - Assume raspberrypi-1 is running server on *http://192.168.0.2:5000*
-    - You wanna get image for raspberry-2 from raspberrypi-1's camera
-    - Just use [ImageThief](https://pypi.org/project/ImageThief/) to make things simple.
-    
+
 ### Server Demo
 ```python
 from ImageThief import Thief
@@ -31,6 +24,20 @@ app.steal()
 
 ### Client Demo
 ```python
+from requests import get
+from ImageThief import Decoder as fileSaver
+
+url = 'http://localhost:5000'
+plan = '/audio'
+
+a = get(url + plan, headers={'Ext': '.mp3', 'filename': 'sampa.mp3'}).json()
+
+secondfile = 'some.mp3'
+if a['message'] == 'OK':
+    fileSaver(a['data'], secondfile)
+    print('File Saved with name ' + secondfile)
+else:
+    print('Error')
 
 
 ```
