@@ -1,5 +1,4 @@
 from flask import Flask, request, Response
-from json import  dumps
 from ._endpointProcessor import EndpointProcessor
 from ._globalDict import Data
 

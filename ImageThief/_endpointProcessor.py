@@ -14,13 +14,12 @@ class EndpointProcessor:
         self.handler()
         ext = Data.get('Ext', None)
         if ext == None:
-            return Response(dumps({'messge': 'Not Found extension'}), status=404)
+            return Response(dumps({'message': 'Not Found extension'}), status=404)
         else:
             txtFile = Data.get('filename', None)
             if txtFile == None:
-                return Response(dumps({'messge': 'Not Found text file'}), status=404)
+                return Response(dumps({'message': 'Not Found text file'}), status=404)
             else:
-                print('Its Here')
                 f = open(txtFile, 'rb')
                 fl = pickleDump(f.readlines())
                 f.close()

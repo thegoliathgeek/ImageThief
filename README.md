@@ -19,33 +19,19 @@
 ```python
 from ImageThief import Thief
 
-
-def some():
-    # Do Something here
-    print('Image stolen')
-    pass
+app = Thief(name=__name__)
 
 
-thief = Thief('Dazz', cameraPort=0)
-thief.add_plan('/image', 'image', some)
-thief.steal(port=3000, debug=True)
+app.add_plan('/image','image')
+app.add_plan('/audio','audio')
+
+app.steal()
 
 ```
 
 ### Client Demo
 ```python
-import requests as req
-from ImageThief import StolenImageDecoder
 
-if __name__ == '__main__':
-        your_ip = '<your server ip>'
-        port = 5000 #default
-        url = 'http://'+your_ip+':'+str(port)+'/plan_name'
-        # For above Demo code it is
-        # url = 'http://'+your_ip+':'+str(port)+'/image'
-        r = req.get(url)
-        decoder = StolenImageDecoder('<ImageName>')
-        ## decoder = StolenImageDecoder('myImage')
-        decoder.decodeImage(r.text)
+
 ```
 
