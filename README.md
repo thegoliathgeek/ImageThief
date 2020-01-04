@@ -2,6 +2,12 @@
 
 ### Install
     pip install imagethief
+    
+    -------------------------OR------------------------------------------------
+    
+    git clone https://github.com/imdhanush/ImageThief
+    cd ImageThief
+    python setup.py install
 
 ### Dependencies used 
 - [Flask](https://github.com/pallets/flask)
@@ -14,8 +20,8 @@ from ImageThief import Thief
 app = Thief(name=__name__)
 
 
-app.add_plan('/image','image')
-app.add_plan('/audio','audio')
+app.add_plan('/image','image') # Plan to get image file
+app.add_plan('/audio','audio') # plan to get audio file
 
 app.steal()
 
