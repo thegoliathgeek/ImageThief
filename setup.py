@@ -1,7 +1,7 @@
 from setuptools import setup
 
 
-VERSION = "1.1.0"
+VERSION = "2.0.1"
 
 with open('README.rst', 'r') as f:
     long_description = f.read()
@@ -10,7 +10,7 @@ setup(
     version=VERSION,
     author="Dhanush",
     author_email="dhanushdazz@gmail.com",
-    description="Get images from server running on default route",
+    description="Get files from server running on default route",
     long_description=long_description,
     url="",
     packages=['ImageThief'],
