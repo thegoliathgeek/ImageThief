@@ -7,7 +7,7 @@ import re
 def Decoder(unicodeInput, filename, response=None):
     if response is None:
         response = {'extension': ''}
-    userExt = re.findall(reExp, filename)
+    userExt = re.findall(reExp, filename)[0]
     if userExt != response.get('extension', ''):
         print('Extension doesnt match')
         return
