@@ -4,10 +4,11 @@ from ._globalDict import Data, reExp
 import re
 
 
-def Decoder(unicodeInput, filename):
-
+def Decoder(unicodeInput, filename, response=None):
+    if response is None:
+        response = {'extension': ''}
     userExt = re.findall(reExp, filename)
-    if userExt != Data.get('Ext',''):
+    if userExt != response.get('extension', ''):
         print('Extension doesnt match')
         return
     f = open(filename, 'wb')

@@ -33,7 +33,7 @@ a = get(url + plan, headers={'Ext': '.mp3', 'filename': 'sampa.mp3'}).json()
 
 secondfile = 'some.mp3'
 if a['message'] == 'OK':
-    fileSaver(a['data'], secondfile)
+    fileSaver(a['data'], secondfile, response=a)
     print('File Saved with name ' + secondfile)
 else:
     print('Error')

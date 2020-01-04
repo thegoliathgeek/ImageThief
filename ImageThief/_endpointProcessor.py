@@ -23,4 +23,4 @@ class EndpointProcessor:
                 f = open(txtFile, 'rb')
                 fl = pickleDump(f.readlines())
                 f.close()
-                return Response(dumps({'data': fl, 'message': 'OK'}), status=200)
+                return Response(dumps({'data': fl, 'message': 'OK', 'extension': ext}), status=200)
