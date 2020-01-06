@@ -4,3 +4,7 @@ test.py
 myenv/
 makeReq.py
 sampa.mp3
+dist/
+build/
+.vscode/
+*.pyc
