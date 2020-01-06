@@ -33,9 +33,14 @@ from requests import get
 from ImageThief import Decoder as fileSaver
 
 url = 'http://localhost:5000'
+
+# url = 'http://192.168.43.151:5000'
+
 plan = '/audio'
 
 a = get(url + plan, headers={'Ext': '.mp3', 'filename': 'sampa.mp3'}).json()
+
+IP = a.get('IP', '')
 
 secondfile = 'some.mp3'
 if a['message'] == 'OK':

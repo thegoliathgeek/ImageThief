@@ -1,2 +1,2 @@
-from ._thief import Thief, GetCurrentIp
+from ._thief import Thief
 from ._fileDecoder import Decoder
