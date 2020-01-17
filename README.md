@@ -38,13 +38,14 @@ url = 'http://localhost:5000'
 
 plan = '/audio'
 
-a = get(url + plan, headers={'Ext': '.mp3', 'filename': 'sampa.mp3'}).json()
+fileExtension = '.mp3'
+filenameToBeFetched = 'sampa.mp3'
+filenameToBeSavedLocally = 'some.mp3'
 
-IP = a.get('IP', '')
+a = get(url + plan, headers={'Ext': fileExtension, 'filename': filenameToBeFetched}).json()
 
-secondfile = 'some.mp3'
 if a['message'] == 'OK':
-    fileSaver(a['data'], secondfile, response=a)
-    print('File Saved with name ' + secondfile)
+    fileSaver(a['data'], filenameToBeSavedLocally, response=a)
+    print('File Saved with name ' + filenameToBeSavedLocally)
 else:
     print('Error')
